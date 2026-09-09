@@ -5,7 +5,7 @@
 
     <groupId>se.pbt</groupId>
     <artifactId>market-notifier</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>${revision}</version>
     <packaging>pom</packaging>
 
     <modules>
@@ -19,6 +19,9 @@
     </modules>
 
     <properties>
+        <!-- Single source of truth for the project's version. See the flatten-maven-plugin
+             binding below for why this is needed instead of a plain <version> tag. -->
+        <revision>1.0.0</revision>
         <java.version>17</java.version>
         <spring.boot.version>3.4.9</spring.boot.version>
         <maven.compiler.source>17</maven.compiler.source>
@@ -103,6 +106,36 @@
                         <phase>test</phase>
                         <goals>
                             <goal>report</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- Resolves the ${revision} placeholder into the actual version before a pom.xml
+                 is installed/deployed, so a module built and installed in one Maven invocation
+                 (e.g. `mvn clean install`) can still be resolved correctly by a later, separate
+                 invocation (e.g. `mvn spring-boot:run -pl app-runner`). Without this, the
+                 installed pom.xml would contain the literal, unresolved "${revision}" text. -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>flatten-maven-plugin</artifactId>
+                <version>1.6.0</version>
+                <configuration>
+                    <flattenMode>resolveCiFriendliesOnly</flattenMode>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>flatten</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>flatten</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>flatten-clean</id>
+                        <phase>clean</phase>
+                        <goals>
+                            <goal>clean</goal>
                         </goals>
                     </execution>
                 </executions>

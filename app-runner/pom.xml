@@ -7,7 +7,7 @@
     <parent>
         <groupId>se.pbt</groupId>
         <artifactId>market-notifier</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>${revision}</version>
     </parent>
 
     <artifactId>app-runner</artifactId>
@@ -18,32 +18,32 @@
         <dependency>
             <groupId>se.pbt</groupId>
             <artifactId>core</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>${revision}</version>
         </dependency>
         <dependency>
             <groupId>se.pbt</groupId>
             <artifactId>sources</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>${revision}</version>
         </dependency>
         <dependency>
             <groupId>se.pbt</groupId>
             <artifactId>subscription</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>${revision}</version>
         </dependency>
         <dependency>
             <groupId>se.pbt</groupId>
             <artifactId>telegram</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>${revision}</version>
         </dependency>
         <dependency>
             <groupId>se.pbt</groupId>
             <artifactId>dispatch</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>${revision}</version>
         </dependency>
         <dependency>
             <groupId>se.pbt</groupId>
             <artifactId>email</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>${revision}</version>
         </dependency>
 
     </dependencies>
