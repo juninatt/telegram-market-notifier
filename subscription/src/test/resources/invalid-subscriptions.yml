@@ -1,0 +1,7 @@
+---
+subscriptions:
+- id: "unterminated-quote
+  chatId: 123456789
+  filter:
+    keywords: [AI, "machine learning]
+    tickers: []

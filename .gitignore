@@ -10,6 +10,10 @@ target/
 ### Maven flatten-maven-plugin ###
 .flattened-pom.xml
 
+### Local runtime data (generated at runtime, not source) ###
+/subscription/subscriptions.yml
+/subscriptions/
+
 ### IntelliJ IDEA ###
 .idea/
 *.iws
